@@ -10,6 +10,8 @@ import Code.Person;
 import Code.Person_Directory;
 import Code.VitalSigns;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -23,6 +25,8 @@ public class Overview extends javax.swing.JPanel {
      * Creates new form Overview
      */
 boolean seen = false;
+boolean isnotfound = false;
+Set<Integer> set = new HashSet<Integer> (); 
 Person_Directory P_d = new Person_Directory();
     public Overview(Person_Directory P_d) {
         initComponents();
@@ -246,6 +250,12 @@ pat.setHno1(p.getHno1());
 
 //populateTable();
 
+ for (Patient p2 : Patient.AbnoRMAL_patientsList){
+   set.add(p2.getId());
+
+
+ }
+
 System.out.println(Patient.Patient_List.size());
 
 for (Patient abs : Patient.Patient_List){
@@ -258,20 +268,54 @@ if (abs.getVitalSigns_List().size() > 0 ){
  //for (VitalSigns vs : abs.getVitalSigns_List()){
 
   if (vs.getBlood_oxygen() <= 80){
-      Patient.AbnoRMAL_patientsList.add(abs);
+     // Patient.AbnoRMAL_patientsList.add(abs);
+for (int i : set){
+
+if (vs.getId() == i){
+
+isnotfound = true;
+}
+}
+if (!isnotfound){
+ 
+Patient.AbnoRMAL_patientsList.add(abs);
+}
+
 
 
 }
 
  else if (vs.getSystolic_pressure()>=150 || vs.getSystolic_pressure()<= 80){
+//Patient.AbnoRMAL_patientsList.add(abs);
+for (int i : set){
+
+if (vs.getId() == i){
+
+isnotfound = true;
+}
+}
+if (!isnotfound){
+ 
 Patient.AbnoRMAL_patientsList.add(abs);
+}
+
 }
 
 else if (vs.getTemperature()>=100 || vs.getTemperature() < 80){
+
+for (int i : set){
+
+if (vs.getId() == i){
+
+isnotfound = true;
+}
+}
+if (!isnotfound){
+ 
 Patient.AbnoRMAL_patientsList.add(abs);
 }
 
-
+}
 
 //}
 
