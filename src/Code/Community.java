@@ -17,6 +17,24 @@ public class Community {
     //String Zip_Code;
     //String City;
    String Community_name;
+   String city ;
+int hno1;
+
+    public int getHno1() {
+        return hno1;
+    }
+
+    public void setHno1(int hno1) {
+        this.hno1 = hno1;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
    public static ArrayList <City>  CityList =  new ArrayList <City> () ;
 
 

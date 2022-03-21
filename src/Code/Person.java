@@ -21,6 +21,24 @@ String DOB;
 String Address;
 Community community;
 int Community_Id;
+String City;
+int hno1;
+
+    public String getCity() {
+        return City;
+    }
+
+    public void setCity(String City) {
+        this.City = City;
+    }
+
+    public int getHno1() {
+        return hno1;
+    }
+
+    public void setHno1(int hno1) {
+        this.hno1 = hno1;
+    }
 
 boolean isPatient;
 

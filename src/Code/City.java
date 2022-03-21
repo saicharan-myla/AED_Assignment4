@@ -16,6 +16,15 @@ class City {
    String State;
    String Zip;
    String Country;
+
+    public int getHno() {
+        return hno;
+    }
+
+    public void setHno(int hno) {
+        this.hno = hno;
+    }
+   int hno;
   ArrayList <houses> houselist = new ArrayList <houses> ();
 
     public String getState() {

@@ -64,13 +64,13 @@ Person_Directory P_d = new Person_Directory();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Name", "DOB", "ID", "Community_Id", "Phone"
+                "Name", "DOB", "ID", "Community_Id", "Phone", "City", "Hno"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -235,6 +235,8 @@ pat.setDOB(p.getDOB());
 pat.setPhone_number(p.getPhone_number());
   //pat.setVs(p.getVs());
   pat.setVitalSigns_List(p.getVitalSigns_List());
+pat.setCity(p.getCity());
+pat.setHno1(p.getHno1());
  
   Patient.Patient_List.add(pat);}
 
@@ -392,13 +394,15 @@ JOptionPane.showMessageDialog(this, "Please select a row");
     model.setRowCount(0);
  for (Patient p : Patient.AbnoRMAL_patientsList){
  
-Object [] row =new Object[5];
+Object [] row =new Object[7];
 row[0]= p;
 //row[1]= p.getAge();
 row[1]= p.getDOB();
 row[2]= p.getId();
 row[3]= p.getCommunity_Id();
 row[4]= p.getPhone_number();
+row[5] = p.getCity();
+row[6] = p.getHno1();
 
 model.addRow(row);
 

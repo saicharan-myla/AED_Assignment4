@@ -69,6 +69,10 @@ this.P_d = P_d;
         jTexteditId = new javax.swing.JTextField();
         jTexteditPhone = new javax.swing.JTextField();
         jBtnUpdate = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(51, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -190,6 +194,14 @@ this.P_d = P_d;
             }
         });
         add(jBtnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, -1, -1));
+
+        jLabel9.setText("City");
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 70, -1, -1));
+        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 60, 140, -1));
+
+        jLabel10.setText("Hno");
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 130, -1, -1));
+        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 130, 130, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSaveActionPerformed
@@ -238,6 +250,20 @@ String comm_id = jTxtCommuntyNumber.getText();
             return;
 }
 
+  String city = jTextField1.getText();
+if (city == null || city.equals("")|| !city.matches(alphaNumericRegex) ) {
+            JOptionPane.showMessageDialog(null, "Please enter a valid dob");
+            return;
+        }
+
+
+String hno = jTextField2.getText();
+ try {
+            int var = Integer.parseInt(hno);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, " Please type a valid  number ");
+            return;
+}
 
 
 Person p = P_d.addPerson();
@@ -249,6 +275,8 @@ p.setName(Name);
 p.setDOB(Dob);
 p.setId(Integer.parseInt(id));
 p.setCommunity_Id(Integer.parseInt(comm_id));
+p.setCity(city);
+p.setHno1(Integer.parseInt(hno));
 
 
 
@@ -387,6 +415,7 @@ populateEditTbale();
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -394,9 +423,12 @@ populateEditTbale();
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLblPatient_Id;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTexteditAge;
     private javax.swing.JTextField jTexteditComm_Id;
     private javax.swing.JTextField jTexteditDob;
